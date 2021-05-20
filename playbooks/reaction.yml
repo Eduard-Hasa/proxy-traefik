@@ -163,12 +163,13 @@
     - git:
         repo: "https://github.com/Eduard-Hasa/proxy-traefik.git"
         dest: /home/{{ create_user }}/{{proxy_dir}}
-        version: trunk
+        version: main
 
     - name: Change owner of the Reaction Platform and proxy to the newly created user
       command: "chown -R {{create_user}}:{{create_user}} {{reaction_dir}} {{proxy_dir}}"
       args:
         warn: false
+
         chdir: /home/{{ create_user }}
 
     - name: Change permissions of the source code directories
